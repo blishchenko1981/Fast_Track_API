@@ -1,8 +1,11 @@
 package com.ally.day01;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class p01_SimpleGETRequest {
@@ -47,6 +50,43 @@ public class p01_SimpleGETRequest {
         System.out.println("response.asString().contains(\"Europe\") = " + response.asString().contains("Europe"));
         Assertions.assertTrue(response.asString().contains("Europe"));
 
+    }
+
+    @DisplayName("GET/employees/100")
+    @Test
+    public void getOneEmployee(){
+
+      Response response =   RestAssured.get("http://3.91.96.199:1000/ords/hr/employees/100").prettyPeek();
+
+        System.out.println("-----------------------------------------------------------------------");
+
+      //First Name
+       String firstName =  response.path("first_name");
+        System.out.println("firstName = " + firstName);
+
+        System.out.println("-----------------------------------------------------------------");
+
+        // Last Name
+        String lastName = response.path("last-name");
+        System.out.println("lastName = " + lastName);
+        System.out.println("-----------------------------------------------------------------");
+
+        // Status code is 200
+        Assertions.assertEquals(200, response.getStatusCode());
+        System.out.println("Or we can use HttpStatus.SC_OK");
+        Assertions.assertEquals(HttpStatus.SC_OK, response.statusCode());
+        System.out.println("-----------------------------------------------------------------");
+
+        //Verify first name is Steven
+
+        Assertions.assertEquals("Steven", firstName);
+        System.out.println("-----------------------------------------------------------------");
+
+
+        //Verify content-Type is application/json
+        System.out.println("response.contentType() = " + response.contentType());
+        Assertions.assertEquals("application/json", response.contentType());
+        Assertions.assertEquals(ContentType.JSON.toString(), response.contentType());
     }
 
 
