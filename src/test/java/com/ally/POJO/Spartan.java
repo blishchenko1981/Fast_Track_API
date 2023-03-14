@@ -1,6 +1,7 @@
 package com.ally.POJO;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,6 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@JsonIgnoreProperties(value = "id", allowSetters = true)
 public class Spartan {
 
     private int id;
