@@ -129,6 +129,14 @@ public class P04_bookitApi_bearerToken extends BookitTestBase {
         List<Room> roomsWith6 = jasonPath.getList("[0].clusters[0].rooms.findAll{it.capacity==6}", Room.class);
         System.out.println("roomsWith6 = " + roomsWith6);
 
+       List<Cluster> clustersLight = jasonPath.getList("[0].clusters.findAll{it.name == 'light-side'}", Cluster.class);
+        System.out.println("cluster = " + clustersLight);
+
+        List<Room> roomsLightSide = jasonPath.getList("[0].clusters.findAll{it.name=='light-side'}.rooms[0]", Room.class);
+        System.out.println("roomsLightSide = " + roomsLightSide);
+
+
+
 
     }
 }
