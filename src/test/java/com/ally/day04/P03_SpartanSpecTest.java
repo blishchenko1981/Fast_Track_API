@@ -26,11 +26,6 @@ public class P03_SpartanSpecTest extends SpartanAuthTestBase {
 
     @Test
     public void test2() {
-
-
-
-
-
         given().spec(reqSpec("admin", "admin"))
                         .pathParam("id", 2).
                 when().get("/spartans/{id}").
