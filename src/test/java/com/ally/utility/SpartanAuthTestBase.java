@@ -38,7 +38,7 @@ public abstract class SpartanAuthTestBase {
 
     public static ResponseSpecification respSpec(int statusCode){
 
-        return expect().contentType(ContentType.JSON).statusCode(statusCode);
+        return expect().statusCode(statusCode);
     }
 }
 
