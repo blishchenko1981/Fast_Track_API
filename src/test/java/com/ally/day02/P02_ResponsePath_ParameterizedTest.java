@@ -13,7 +13,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class P02_ResponsePath extends HrTestBase {
+public class P02_ResponsePath_ParameterizedTest extends HrTestBase {
 
     @Test
     public void getSingleRegion() {

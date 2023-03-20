@@ -1,0 +1,5 @@
+username, password, id, statusCode
+admin,    admin,     2, 200
+editor,   editor,    2, 200
+user,     user,      2, 200
+guest,    guest,     2, 401
